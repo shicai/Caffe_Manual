@@ -156,6 +156,7 @@ int main(int argc, char** argv) {
     }
     caffe_copy(blob->count(), data_ptr, w_ptr);
     weight_ptr = (const float *) blob->cpu_data();
+    delete [] data_ptr;
     std::cout << "\nnew weights and bias from layer: " << query_layer_name << "\n";
     PRINT_DATA(weight_ptr);
 
