@@ -1,6 +1,3 @@
-Log file created at: 2015/08/06 09:45:15
-Running on machine: PC-YANGSHICAI
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
 I0806 09:45:15.961009 11748 caffe.cpp:113] Use GPU with device ID 0
 I0806 09:45:16.327029 11748 common.cpp:24] System entropy source not available, using fallback algorithm to generate seed instead.
 I0806 09:45:16.327029 11748 caffe.cpp:121] Starting Optimization
