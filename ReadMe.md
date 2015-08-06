@@ -145,7 +145,8 @@ by Shicai Yang（[@星空下的巫师](http://weibo.com/shicaiyang)）on 2015/08
     }
     caffe_copy(blob->count(), data_ptr, weight_ptr);
     
-    //! Note: 训练模式下，手动修改指定Layer的梯度数据，与此相似，mutable_cpu_data改为mutable_cpu_diff，mutable_gpu_data改为mutable_gpu_diff
+    //! Note: 训练模式下，手动修改指定Layer的梯度数据，与此相似
+    // mutable_cpu_data改为mutable_cpu_diff，mutable_gpu_data改为mutable_gpu_diff
 
 ### 保存新的模型
 
