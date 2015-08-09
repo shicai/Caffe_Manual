@@ -101,6 +101,11 @@ int main(int argc, char** argv) {
     boost::shared_ptr<Layer<float> > layer;
     boost::shared_ptr<Blob<float> > blob;
     
+    // show input blob size
+    Blob<float>* input_blobs = net->input_blobs()[0];
+    std::cout << "\nInput blob size:\n";
+    PRINT_SHAPE2(input_blobs);
+    
     // processing blobs of each layer, namely, weights and bias
     const float *mem_ptr;
     CHECK(layers.size() == layer_names.size());
