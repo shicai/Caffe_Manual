@@ -147,7 +147,7 @@ int main(int argc, char** argv)
     std::vector<std::string> file_names;
     boost::split(file_names, save_file_names, boost::is_any_of(","));
     CHECK_EQ(blob_names.size(), file_names.size()) <<
-        " the number of blob names and dataset names must be equal";
+        " the number of feature blob names and save file names must be equal";
 
     size_t num_features = blob_names.size();
     for (size_t i = 0; i < num_features; i++) 
