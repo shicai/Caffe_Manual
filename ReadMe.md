@@ -87,6 +87,18 @@ by Shicai Yang（[@星空下的巫师](http://weibo.com/shicaiyang)）on 2015/08
     unsigned int num_data = blob->count(); /* NCHW=10x96x55x55 */
     const float *blob_ptr = (const float *) blob->cpu_data();
 
+### 根据文件列表，获取特征，并存为二进制文件
+
+详见**get_features.cpp**文件：
+> 主要包括三个步骤
+- 生成文件列表，格式与训练用的类似，每行一个图像
+包括文件全路径、空格、标签（没有的话，可以置0）
+- 根据train_val或者deploy的prototxt，改写生成feat.prototxt
+主要是将输入层改为image_data层，最后加上prob和argmax（为了输出概率和Top1/5预测标签）
+- 根据指定参数，运行程序后会生成若干个二进制文件，可以用MATLAB读取数据，进行分析
+
+
+    
 ### 根据Layer的名字获取其在网络中的Index
 
     //! Note: Layer包括神经网络所有层，比如，CaffeNet共有23层
