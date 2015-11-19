@@ -22,6 +22,23 @@ by Shicai Yang（[@星空下的巫师](http://weibo.com/shicaiyang)）on 2015/08
     char *model = "H:\\Models\\Caffe\\bvlc_reference_caffenet.caffemodel";    
     net->CopyTrainedLayersFrom(model);
     
+### 读取模型中的每层的结构配置参数（如name，type，kernel size，pad，stride等）
+
+    char *model = "H:\\Models\\Caffe\\bvlc_reference_caffenet.caffemodel";
+    ReadNetParamsFromBinaryFileOrDie(model, &param);
+    int num_layers = param.layer_size();
+    for (int i = 0; i < num_layers; ++i)
+    {
+        LOG(ERROR) << "Layer " << i << ":" << param.layer(i).name() << "\t" << param.layer(i).type();
+        if (param.layer(i).type() == "Convolution")
+        {
+            ConvolutionParameter conv_param = param.layer(i).convolution_param();
+            LOG(ERROR) << "\t\tkernel size: " << conv_param.kernel_size()
+                << ", pad: " << conv_param.pad()
+                << ", stride: " << conv_param.stride();
+        }
+    }
+    
 ### 读取图像均值
     
     char *mean_file = "H:\\Models\\Caffe\\imagenet_mean.binaryproto";
