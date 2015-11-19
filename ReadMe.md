@@ -25,6 +25,7 @@ by Shicai Yang（[@星空下的巫师](http://weibo.com/shicaiyang)）on 2015/08
 ### 读取模型中的每层的结构配置参数
 
     char *model = "H:\\Models\\Caffe\\bvlc_reference_caffenet.caffemodel";
+    NetParameter param;
     ReadNetParamsFromBinaryFileOrDie(model, &param);
     int num_layers = param.layer_size();
     for (int i = 0; i < num_layers; ++i)
