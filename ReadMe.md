@@ -22,13 +22,14 @@ by Shicai Yang（[@星空下的巫师](http://weibo.com/shicaiyang)）on 2015/08
     char *model = "H:\\Models\\Caffe\\bvlc_reference_caffenet.caffemodel";    
     net->CopyTrainedLayersFrom(model);
     
-### 读取模型中的每层的结构配置参数（如name，type，kernel size，pad，stride等）
+### 读取模型中的每层的结构配置参数
 
     char *model = "H:\\Models\\Caffe\\bvlc_reference_caffenet.caffemodel";
     ReadNetParamsFromBinaryFileOrDie(model, &param);
     int num_layers = param.layer_size();
     for (int i = 0; i < num_layers; ++i)
     {
+        // 结构配置参数:name，type，kernel size，pad，stride等
         LOG(ERROR) << "Layer " << i << ":" << param.layer(i).name() << "\t" << param.layer(i).type();
         if (param.layer(i).type() == "Convolution")
         {
